@@ -3,3 +3,30 @@
 </h1>
 
 <hr>
+
+
+<div class="row row-cols-1 row-cols-md-4 g-4 ">
+    <div class="col mb-4" *ngFor="let video of videos2U">
+        <div class="card animate__animated animate__fadeIn">
+            <img [src]="video.thumbnails.high.url" class="card-img-top" [alt]="video.title">
+            <div class="card-body">
+                <h5 class="card-title"> {{video.title}} </h5>
+                <p class="card-text">
+                    <strong>Autor:</strong> {{ video.channelTitle }}
+                    <strong>Publicado:</strong> {{ video.publishedAt | date }}
+                </p>
+                <button class="btn btn-outline-primary btn-block" (click)="reproducirVideo(video)">
+                    ver video
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5 mb-5 text-center">
+    <div class="col">
+        <button class="btn btn-primary btn-lg" (click)="cargarVideos()">
+            cargar más videos
+        </button>
+    </div>
+</div>
